@@ -1,0 +1,7 @@
+# Carpeta de cache de Visual Studio Code
+.vscode/
+
+# Carpetas de cache de Python en la raíz del proyecto
+__pycache__/
+*.pyc
+

@@ -1,0 +1,94 @@
+<div class="sidebar">
+    <div class="logo-details">
+        <i class='bx bxl-django icon'></i>
+        <div class="logo_name">DevBlog <br> <p style="font-size:small;font-style:italic">by Dvrklex</p></div>
+        
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+        <li>
+            <i class='bx bx-search' ></i>
+            <input type="text" placeholder="Search...">
+            <span class="tooltip">Search</span>
+        </li>
+        <li>
+            <a href="{% url 'Home' %}">
+                <i class='bx bx-home-circle' ></i>
+                <span class="links_name">Home</span>
+            </a>
+            <span class="tooltip">Home</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-layout' ></i>
+                <span class="links_name">Blog</span>
+            </a>
+            <span class="tooltip">Blog</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-heart' ></i>
+                <span class="links_name">Saved</span>
+            </a>
+            <span class="tooltip">Saved</span>
+            </li>
+       <!-- <li>
+        <a href="#">
+            <i class='bx bx-user' ></i>
+            <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+        </li> -->
+        <li>
+        <a href="#">
+            <i class='bx bx-add-to-queue'></i>
+            <span class="links_name">Create Post</span>
+        </a>
+        <span class="tooltip">Create Post</span>
+        </li>
+        
+        <li>
+        <a href="#">
+            <i class='bx bx-folder' ></i>
+            <span class="links_name">My Posts</span>
+        </a>
+        <span class="tooltip">My Posts</span>
+        </li>
+        
+       
+        {% if user.is_superuser %}
+             <li>
+                <a href="{% url 'admin:index' %}">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                    <span class="tooltip">Dashboard</span>
+                </li>
+            <li>
+        {% endif %}
+        {%if user.is_authenticated %}
+        <li class="profile">
+            <div class="profile-details">
+            <div class="name_job">
+                <div class="job">Bienvenido</div>
+                <div class="name">{{user.username}}</div>
+            </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out" ></i>
+        </li>
+        {% else %}
+        <li class="profile">
+            <div class="profile-details">
+            <div class="name_job">
+                <div class="job">Registrarse</div>
+                <div class="name">Iniciar sesión</div>
+            </div>
+            </div>
+            <i class='bx bx-log-in' id="log_out" ></i>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+<!-- <section class="home-section">
+    <div class="text">Dashboard</div>
+</section> -->
