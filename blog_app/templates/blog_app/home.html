@@ -5,6 +5,8 @@
 {% block css_file %}
     {{ block.super }} 
     <link href="{% static context.home_css %}" rel="stylesheet">
+    <link href="{% static context.slider_css %}" rel="stylesheet">
+    <link href="{% static context.swiperBundleCss %}" rel="stylesheet">
 
 {% endblock %}
 
@@ -15,52 +17,43 @@
     <!-- Carrousel -->
     
     <div id="homeContainer" >
-        <div id="lastestPosts">
-            <div id="big-div">
-                <div id="postHeader0">
-                    <img src="{{ latest_posts.0.imagen.url }}" style="width: 350px;height:300px">
+        <div class="slide-container swiper">
+            <div class="glitch-wrapper">
+                <div class="glitch" data-text="Últimos posteos">Últimos posteos</div>
+             </div>
+          <div class="slide-content">
+              <div class="card-wrapper swiper-wrapper">
+               
+              {% for post in latest_posts %}
+                <div class="card swiper-slide" id="cardPost">
+                    <div id="headerPost">
+                            <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img" >
+                    </div>
+                    <div id="contentPost">
+                        <a href="#"class='viewpost'><h2 id="titlePost">{{ post.titulo }}</h2></a>
+                        <p id="descriptionPost">{{ post.contenido|truncatechars:90 }}</p>
+                    </div>
+                    <!-- <div id="footerPost">
+                        <p>{{ post.autor }}</p>
+                        {% for categorias in post.categoria.all %}
+                        <div id="categoriaContainer" >
+                            <a href="#" ><span id="categoria">{{ categorias.nombre }}</span></a>
+                        </div>
+                        {% endfor %}
+                    </div> -->
                 </div>
-                <div id="content_post0">
-                    <h2>{{ latest_posts.0.titulo }}</h2>
-                    <p>{{ latest_posts.0.contenido|truncatechars:250 }}</p>
-                </div>
-                <div id="footer_post0">
-                    <span>{{ latest_posts.0.created }} - <a href="#">{{ latest_posts.0.autor }}</a></span>
-                    <span>categoria</span>
-                </div>
-            </div>
-
-            <div id="small-div1">
-                <!-- <div id="postHeader1"> -->
-                    <img src="{{ latest_posts.1.imagen.url }}" style="width: 200px;height:100px">
-                <!-- </div> -->
-                <div id="content_post1">
-                    <h2>{{ latest_posts.1.titulo }}</h2>
-                    <p>{{ latest_posts.1.contenido|truncatechars:75 }}</p>
-                </div>
-                <div id="footer_post1">
-                    <p>{{ latest_posts.1.created }} - {{ latest_posts.1.autor }}</p>
-                    <!-- <p>{{ latest_posts.0.categoria.nombre }}</p> -->
-                </div>
-            </div>
-
-            <div id="small-div2">
-                <!-- <div id="small-div2-header"> -->
-                     <img src="{{ latest_posts.2.imagen.url }}" style="width: 200px;height:100px">
-                <!-- </div> -->
-                <div id="content_post2">
-                    <h2>{{ latest_posts.2.titulo }}</h2>
-                    <p>{{ latest_posts.2.contenido|truncatechars:50 }}</p>
-                </div>
-                <div id="footer_post2">
-                    <p>{{ latest_posts.2.created }} - {{ latest_posts.2.autor }}</p>
-                    <!-- <p>{{ latest_posts.0.categoria.nombre }}</p> -->
-                </div>
-            </div>
+                  {% endfor %}
+              </div>
+          </div>
+          <div class="glitch-wrapper" id="categoriaTitle">
+            <div class="glitch" data-text="Categorías">Categorías</div>
         </div>
-        <div id="formRegister">
-            <h2 style="text-align:center;color:aliceblue">Formulario</h2>
+        <div id="contextCategorias">
+            {% for categoria in categorias %}
+            <a href="#">{{ categoria.nombre }}</a>
+            {% endfor %}
         </div>
+         </div>
 
 
 
@@ -70,7 +63,12 @@
     
 
     
-     
+    {% block script_file %}
+    {{ block.super }}
+    <script src="{% static context.swiperBundleJs %}"></script>
+    <script src="{% static context.sliderJs %}"></script>
+
+    {% endblock %}
 
      
 
