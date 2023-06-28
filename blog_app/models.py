@@ -4,9 +4,8 @@ from django.contrib.auth.models import User
  
 class Categoria(models.Model):
     nombre = models.CharField(max_length=50)
-    created = models.DateTimeField(auto_now_add=True) #cuando se crea el registro
-    updated = models.DateTimeField(auto_now_add=True) #cuando se actualiza el registro
-
+    created = models.DateTimeField(auto_now_add=True) 
+    updated = models.DateTimeField(auto_now_add=True)  
     class Meta:
         verbose_name = 'categoria'
         verbose_name_plural = 'categorias'
@@ -17,9 +16,9 @@ class Categoria(models.Model):
 class Post(models.Model):
     titulo = models.CharField(max_length=50)
     contenido = models.TextField()
-    imagen = models.ImageField(upload_to='post', null=True, blank=True) #opcional cargar una imagen en cada post
-    autor = models.ForeignKey(User, on_delete=models.CASCADE) #eliminar en cascada todos los post de un usuario
-    categoria = models.ManyToManyField(Categoria) #relación mucho a mucho
+    imagen = models.ImageField(upload_to='post', null=True) 
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)  
+    categoria = models.ManyToManyField(Categoria) 
     created = models.DateTimeField(auto_now_add=True) 
     updated = models.DateTimeField(auto_now_add=True) 
 
@@ -29,6 +28,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.titulo} creado por {self.autor.username}'
+   
     
 class Comentario(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

@@ -14,3 +14,15 @@ def home(request):
     latest_posts = Post.objects.all().order_by('-created')[:5]
     print(latest_posts)
     return render(request, 'blog_app/home.html',{'view_name': view_name,"context":context,"latest_posts":latest_posts})
+
+
+def blog (request):
+    view_name='Blog'
+    context = {
+        "blog_css":"blog_app/css/blog.css",
+
+    }
+    
+    posts = Post.objects.all().order_by('-created')
+    
+    return render(request,'blog_app/blog.html',{'view_name':view_name,'context':context,'posts':posts})
