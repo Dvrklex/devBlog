@@ -1,0 +1,43 @@
+{% extends './base.html' %} <!-- hereda de la plantilla base.html-->
+
+{% load static %}
+
+{% block css_file %}
+    {{ block.super }} 
+    <link href="{% static context.blog_css %}" rel="stylesheet">
+    <link href="{% static context.categoria_css %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="glitch-wrapper">
+        <div class="glitch" data-text="{{categoria.nombre}}">{{categoria.nombre}}</div>
+    </div>
+
+    <div id="postsContainer">
+        {% for post in posts %}
+        <div id="containerPost">
+            <div id="headerPost">
+                <span id="autorPost">{{ post.autor }}</span>
+                <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img">
+            </div>
+            <div id="bodyPost">
+                <a href="#" ><h2 id="titlePost">{{ post.titulo|truncatechars:30 }}</h2></a>
+                <p id="contentPost">{{ post.contenido|truncatechars:100 }}</p>
+            </div>
+            <div id="footerPost">
+                <div id="categoriaContainer" >
+                    {% for categorias in post.categoria.all|slice:":3" %}
+                    <a href="{% url 'Categoria' categorias.id %}" ><span id="categoria">{{ categorias.nombre }}</span></a>
+                    {% endfor %}
+                        </div>
+                    </div>
+                </div>
+          
+                {% endfor %}
+            </div>
+            
+</div>
+
+{% endblock %}
