@@ -23,7 +23,7 @@
                         <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img">
                     </div>
                     <div id="bodyPost">
-                        <a href="{% url 'view_post' post.id %}" ><h2 id="titlePost">{{ post.titulo|truncatechars:30 }}</h2></a>
+                        <a href="{% url 'Post' post.id %}" ><h2 id="titlePost">{{ post.titulo|truncatechars:30 }}</h2></a>
                         <p id="contentPost">{{ post.contenido|truncatechars:100 }}</p>
                     </div>
                     <div id="footerPost">
