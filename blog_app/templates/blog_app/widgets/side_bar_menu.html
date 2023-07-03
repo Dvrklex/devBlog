@@ -57,13 +57,12 @@
         
        
         {% if user.is_superuser %}
-             <li>
+            <li>
                 <a href="{% url 'admin:index' %}">
                     <i class='bx bx-grid-alt'></i>
                     <span class="links_name">Dashboard</span>
                 </a>
                     <span class="tooltip">Dashboard</span>
-                </li>
             <li>
         {% endif %}
         {%if user.is_authenticated %}
@@ -74,14 +73,14 @@
                 <div class="name">{{user.username}}</div>
             </div>
             </div>
-            <i class='bx bx-log-out' id="log_out" ></i>
+            <i class='bx bx-log-out' id="log_out" ><a href="{% url 'Logout' %}" style="text-decoration: none;color:white;background-color:transparent"></a></i>
         </li>
         {% else %}
         <li class="profile">
             <div class="profile-details">
             <div class="name_job">
-                <div class="job">Registrarse</div>
-                <div class="name">Iniciar sesión</div>
+                <div class="job"><a href="{% url 'SignUp' %}"style="text-decoration: none;color:white;background-color:transparent">Registrarse</a></div>
+                <div class="name"><a href="{% url 'Login' %}"style="text-decoration: none;color:white;background-color:transparent">Iniciar sesión</a></div>
             </div>
             </div>
             <i class='bx bx-log-in' id="log_out" ></i>

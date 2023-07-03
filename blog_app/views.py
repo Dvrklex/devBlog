@@ -45,6 +45,7 @@ def view_post(request, post_id):
     view_name = 'View_post'
     context = {
         "post_css":"blog_app/css/post.css",
+        "post_js":"blog_app/js/post.js",
         
         }
     post = Post.objects.get(id=post_id)
