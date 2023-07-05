@@ -1,0 +1,52 @@
+{% extends './base.html' %}
+
+{% load static %}
+
+{% block css_file %}
+    {{ block.super }}
+    <link href="{% static context.userPosts %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<!-- <h1 id="myPostTitle">Mis Posts</h1> -->
+<div id="indexMyPosts">
+
+    <div id="postsContainer">
+        {% for post in page_object %}
+        <div id="containerPost">
+                <div id="headerPost">
+                    <div id="actionsContainer">
+                        <a href="{% url 'deletePost' post.id %}" id="delPost"> Eliminar </a>
+                        <a href="{% url 'editPost' post.id %}" id="editPost"> Editar </a>
+                    </div>
+                    <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img">
+                </div>
+                <div id="bodyPost">
+                    <a href="{% url 'Post' post.id %}"><h2 id="titlePost">{{ post.titulo|truncatechars:30 }}</h2></a>
+                    <p id="contentPost">{{ post.introduccion }}</p>
+                </div>
+                <div id="footerPost">
+                    <div id="categoriaContainer">
+                        {% for categorias in post.categoria.all|slice:":3" %}
+                        <a href="{% url 'Categoria' categorias.id %}"><span id="categoria">{{ categorias.nombre }}</span></a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="pagination">
+            {% if page_object.has_previous %}
+            <a href="?pagina={{ page_object.previous_page_number }}">anterior</a>
+            {% endif %}
+            
+            <span class="current-page">{{ page_object.number }}</span>
+            
+            {% if page_object.has_next %}
+            <a href="?pagina={{ page_object.next_page_number }}">siguiente</a>
+        {% endif %}
+    </div>
+</div>
+    {% endblock %}
+    

@@ -1,0 +1,176 @@
+.containerForm{
+    width: 800px;
+    height: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.39);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.4px);
+    -webkit-backdrop-filter: blur(11.4px);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+}
+.containerForm h1{
+    text-align: center;
+    background: #E05C10;
+    background: linear-gradient(to right, #E05C10 0%, #FFC508 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+.containerForm p{
+    text-align: center;
+    color: gray;
+    font-style: italic;
+}
+
+.containerForm .drop_img{
+    display:flex;
+    justify-content:space-between;
+    margin:5px;
+}
+
+.containerForm .drop_img .inputImage{
+    width: 60%;
+    margin-top: 10px;
+    color:#a8a8a8
+}
+.containerForm .drop_img .inputImage span{
+    color: gray;
+    font-style: italic;
+}
+.containerForm .drop_img .error-message{
+    color:red;
+}
+
+#inputTitle{
+    height: 50px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f0f1f8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none; 
+}
+.intro{
+    width: auto;
+}
+#inputIntro{
+    height: 80px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f0f1f8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none; 
+}
+textarea{
+    height: 200px;
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: #f0f1f8;
+    border-radius: 6px;
+    padding: 0 15px;
+    resize: none; 
+}
+#inputImage{
+    height: 45px;
+    width: 100%;
+     
+} 
+input[type=file]::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: transparent;
+    border: solid 2px orange;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: orange;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background: orange;
+    color: #000;
+  }
+
+.containerForm h3{
+    color: white;
+    text-align: center;
+}
+.containerForm form .titulo{
+    padding: 5px;
+
+}
+.containerForm form .contenido{
+    margin: 16px;
+    padding: 5px;
+
+}
+
+.containerForm form .button{
+    text-align: center;
+    margin: 10px;
+    cursor: pointer;
+}
+.containerForm form .button input{
+    background-color: transparent;
+    padding: 10px;
+    width: 200px;
+    color: white;
+    border: white solid 1px;
+    border-radius: 5px;
+    margin: auto;
+}
+.containerForm form .button input:hover{
+    text-decoration: none;
+    background-color: greenyellow;
+    width: 230px;
+    border: greenyellow solid 1px;
+    color: black;
+    transition: 0.5s;
+  }
+
+
+
+
+/*DROPDOWN MENU*/
+.containerForm form .dropdown select {
+    background-color: transparent;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    margin: 10px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    width: 200px;
+}
+.containerForm form .dropdown  select:focus{
+    background-color: #fff;
+    color: #000;
+}
+.containerForm form .dropdown  select option{
+    color: #000;
+    font-weight: 400;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    width: 200px;
+    transition: background-color 0.3s ease;
+}
+.containerForm form .dropdown  select option:checked{
+    background-color: #a8a8a8;
+}
+.containerForm form .dropdown select option:hover {
+    background-color: #f2f2f2; 
+}

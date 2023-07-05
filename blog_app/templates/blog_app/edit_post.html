@@ -1,0 +1,59 @@
+{% extends '../blog_app/base.html' %}
+
+{% load static %}
+{% block css_file %}
+{{ block.super }}
+<link href="{% static context.css_file %}" rel="stylesheet">
+
+{% endblock %}
+{% block content %}
+
+<div class="containerForm">
+
+    <h1 id= "user_title" > Bienvenido <strong>{{user.username}}</strong></h1>
+    <p id="create_post" > Aquí puedes editar tu Post</p>
+    
+        <form method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %} 
+            <div class="titulo">
+                <h3>Título</h3>
+                <input type="text" name="titulo" class="form-control" id="inputTitle" placeholder="{{ post.titulo }}" value="{{ post.titulo }}"maxlength="50">
+            </div>
+            <div class="intro">
+                <input type="text" name="introduccion" class="form-control" id="inputIntro" placeholder="{{ post.introduccion }}"" value="{{ post.introduccion }}"maxlength="50">
+            </div>
+            <div class="drop_img">
+                <div class="dropdown">
+                    <select name="categoria">
+                        <option>Categoría del Post...</option>
+                        {% for categoria in categorias %}
+                            {% if categoria.id == post.categoria.id %}
+                                <option value="{{ categoria.id }}" selected>{{ categoria.nombre }}</option>
+                            {% else %}
+                                <option value="{{ categoria.id }}">{{ categoria.nombre }}</option>
+                            {% endif %}
+                    {% endfor %}
+                    </select>
+                </div>
+                <div class="inputImage">
+                    <input name="imagen" type="file" accept="image/*" max="5242880" enctype="multipart/form-data" class="form-control" id="inputImage">
+                    
+                    <span>- La imágen no debe superar los <strong>5 MB</strong>.</span>
+                    {% if error_message %}
+                        <p class="error-message" >{{ error_message }}</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="contenido">
+                <textarea class="form-control" name="contenido" id="exampleFormControlTextarea1" rows="3" placeholder="{{ post.contenido }}" value="{{ post.contenido }}">{{ contenido }}</textarea>
+                <span style="color:gray;font-style:italic"> Si tienes dudas sobre como usar el formato Markdown haz <a href="{% url 'Ayuda' %}" style="text-decoration: none;color:orange;">aquí</a></span>
+            </div>
+            
+            <div class="button">
+                <input type="submit" value="Guardar edición"/>
+            </div>
+        </form>
+        
+        
+</div>
+{% endblock %}

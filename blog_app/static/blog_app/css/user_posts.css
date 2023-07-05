@@ -1,4 +1,4 @@
-#indexBlog{
+#indexMyPosts{
     margin: auto;
 }
 /*Index - Publicaciones*/
@@ -34,7 +34,8 @@
     overflow: hidden;
   }
   
-#autorPost {
+#delPost {
+    text-decoration: none;
     position: absolute;
     top: 5px; 
     right: 5px;  
@@ -47,55 +48,35 @@
     margin: 0;
     z-index: 1; 
 }
-#autorPost:hover{
+#editPost {
+    text-decoration: none;
+    position: absolute;
+    top: 40px; 
+    right: 5px;  
+    border-radius: 15px;
+    color: white;
+    font-size: 12px;
+    border: solid rgb(230, 226, 0) 1px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 0;
+    z-index: 1; 
+}
+#delPost:hover{
     background: rgb(141, 0, 0);
     cursor: pointer;
     transition : 500ms;
     padding: 5px 20px;
     transform : translateY(-0px);
 }
-
-#likesPost {
-    position: absolute;
-    top: 45px; 
-    right: 5px;  
-    border-radius: 15px;
-    color: white;
-    font-size: 12px;
-    border: solid blue 1px;
-    background-color: transparent;
-    padding: 5px;
-    margin: 0;
-    z-index: 1; 
-}
-#likesPost:hover{
-    background: blue;
+#editPost:hover{
+    background: rgb(230, 226, 0);
+    color: black;
     cursor: pointer;
     transition : 500ms;
     padding: 5px 20px;
     transform : translateY(-0px);
 }
-#commentsPost {
-    position: absolute;
-    top: 85px; 
-    right: 5px;  
-    border-radius: 15px;
-    color: white;
-    font-size: 12px;
-    border: solid rgb(141, 0, 0) 1px;
-    background-color: transparent;
-    padding: 5px;
-    margin: 0;
-    z-index: 1; 
-}
-#commentsPost:hover{
-    background: rgb(141, 0, 0);
-    cursor: pointer;
-    transition : 500ms;
-    padding: 5px 20px;
-    transform : translateY(-0px);
-}
-  
   
 #headerPost img {
     width: 100%;

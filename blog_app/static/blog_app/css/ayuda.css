@@ -1,0 +1,55 @@
+.markdown-help {
+    width: 1000px;
+    height: auto;
+    
+    margin: auto;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.43);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.2px);
+    -webkit-backdrop-filter: blur(12.2px);
+    border: 1px solid rgba(0, 0, 0, 0.09);
+}
+
+.markdown-help h1 {
+    text-align: center;
+    background: #E05C10;
+    background: linear-gradient(to right, #E05C10 0%, #FFC508 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.markdown-help p {
+    color: antiquewhite;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+
+.markdown-help h2{
+    color: #FFC508;
+    text-align: center;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.markdown-help pre {
+    width: 50%;
+    text-align: center;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+}

@@ -1,5 +1,5 @@
 {% extends '../blog_app/base.html' %} <!-- hereda de la plantilla base.html-->
-
+{% load markdown_extras %}
 
 {% load static %}
 
@@ -23,8 +23,8 @@
                 <h3>{{post.titulo}}</h3>
                 <span>Creado por {{post.autor}} - {{ post.created|date:"d M Y" }}</span>
             </div>
-            <div id="contentBody">
-                <p>{{post.contenido}}</p>
+            <div id="contentBody" class="markdown-content">
+                <p>{{ post.contenido|markdown|safe}}</p>
             </div>
         </div>
         <div id="footerPost">

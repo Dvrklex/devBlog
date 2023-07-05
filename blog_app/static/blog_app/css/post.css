@@ -127,3 +127,15 @@ body{
     color: white;
     background-color: black;
 }
+
+
+/** Estilos para markdown content*/
+.markdown-content h1{
+    color: #fff;
+}
+.markdown-content h2{
+    color: #fff;
+}
+.markdown-content h3{
+    color: #fff;
+}

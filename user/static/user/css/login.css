@@ -7,19 +7,22 @@ form {
     justify-content: center;
     margin: 30px auto;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.18);
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border: 1px solid rgba(99, 99, 99, 0.3);
 }
 
 form h2{
     font-size: 38px;
     font-weight: 600;
     text-align: center;
-    color: greenyellow;
+    background: #E05C10;
+    background: linear-gradient(to right, #FFC508 0%, #E05C10 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 form .input-box{
     display: grid;
@@ -45,13 +48,16 @@ form button{
     border: none;
     padding: 8px 16px;
     border-radius: 6px;
-    background: greenyellow;
+    background: transparent;
+    color: orange;
+    border: 1px solid orange;
+
     cursor: pointer;
     transition: all 0.3s ease;
 }    
 form button:hover{
-    background: green;
-    color: white;
+    background: orange;
+    color: rgb(0, 0, 0);
 }    
 form .log-cont {
     text-align: center;

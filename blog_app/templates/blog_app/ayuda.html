@@ -1,0 +1,69 @@
+{% extends './base.html' %} <!-- hereda de la plantilla base.html-->
+
+{% load static %}
+
+{% block css_file %}
+    {{ block.super }} 
+    <link href="{% static context.ayuda_css %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <div class="markdown-help">
+        <h1>Guía de Markdown</h1>
+        <p>Markdown es una sintaxis de marcado simple que te permite formatear el texto de una manera más fácil y rápida. Aquí tienes algunos ejemplos de cómo puedes usar Markdown:</p>
+        
+        <h2>Encabezados</h2>
+        <pre>
+# Encabezado de nivel 1
+## Encabezado de nivel 2
+### Encabezado de nivel 3
+        </pre>
+        
+        <h2>Negrita e Itálica</h2>
+        <pre>
+**Texto en negrita**
+*Texto en itálica*
+        </pre>
+        
+        <h2>Listas</h2>
+        <pre>
+- Elemento de lista 1
+- Elemento de lista 2
+- Elemento de lista 3
+        </pre>
+        
+        <h2>Listas Numeradas</h2>
+        <pre>
+1. Elemento 1
+2. Elemento 2
+3. Elemento 3
+        </pre>
+        
+        <h2>Enlaces</h2>
+        <pre>
+[Texto del enlace](URL_del_enlace)
+        </pre>
+        <h2>Imágenes</h2>
+        <pre>
+![Texto alternativo](URL_de_la_imagen)
+        </pre>
+        
+        <h2>Código en línea y Bloques de código</h2>
+        <pre>
+`Código en línea`
+
+</pre>
+        
+<h2>Citas</h2>
+<pre>
+> Esto es una cita.
+</pre>
+
+<h2>Línea horizontal</h2>
+<pre>
+---
+</pre>
+
+<p>Recuerda que puedes utilizar Markdown en tus posts para darles un formato más elegante y legible.</p>
+</div>
+{% endblock %}

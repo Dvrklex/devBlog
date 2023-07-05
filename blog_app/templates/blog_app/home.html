@@ -30,17 +30,10 @@
                             <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img" >
                     </div>
                     <div id="contentPost">
-                        <a href="#"class='viewpost'><h2 id="titlePost">{{ post.titulo|truncatechars:30}}</h2></a>
-                        <p id="descriptionPost">{{ post.contenido|truncatechars:90 }}</p>
+                        <a href="{% url 'Post' post.id %}"class='viewpost'><h2 id="titlePost">{{ post.titulo|truncatechars:30}}</h2></a>
+                        <p id="descriptionPost">{{ post.introduccion }}</p>
                     </div>
-                    <!-- <div id="footerPost">
-                        <p>{{ post.autor }}</p>
-                        {% for categorias in post.categoria.all %}
-                        <div id="categoriaContainer" >
-                            <a href="#" ><span id="categoria">{{ categorias.nombre }}</span></a>
-                        </div>
-                        {% endfor %}
-                    </div> -->
+                    
                 </div>
                   {% endfor %}
               </div>
