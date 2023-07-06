@@ -16,8 +16,10 @@
 
         <div id="indexPost">
             <div id="headerPost">
-            <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}">
-        </div>
+                <span id="likesPost"><a href="{% url 'like_post' post.id %}">{{ post.like_set.count }}<i class='bx bxs-like'></i></a></span>
+                <span id="commentsPost"><a href="#">{{ post.comentario_set.count }}</a><i class='bx bxs-comment'></i></span>
+                <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}">
+            </div>
         <div id="bodyPost">
             <div id="headerBody">
                 <h3>{{post.titulo}}</h3>
@@ -32,28 +34,53 @@
         </div>
         
     </div>
-    <div id="Comentarios"> 
-        <h2>comentarios disponibles</h2>
-        {% for comentario in comentarios %}
+    <div id="indexComentarios"> 
+        <h2>Comentarios </h2>
+        <div id="comentarioContainer">
+
+            {% for comentario in comentarios %}
             {% if post.id == comentario.post.id %}
-            <div class="card bg-primary text-left m-3">
-                <img class="card-img-top" src="holder.js/100px180/" alt="">
+            <div class="comentario">
                 <div class="card-body"> 
                     <h3>{{ comentario.usuario }}</h3>
-                    <p>Cantidad de comentarios: {{ comentario.post.comentario_set.count }}</p> 
                     <p>{{ comentario.contenido }}</p>
-                    <label>{{ comentario.created }}</label>
+                    <span>{{ comentario.created }}</span>
+                    {% if user == comentario.usuario %}
+                    <a id="deleteComment" href="{% url 'deleteComment' comentario.id %}"><i class='bx bxs-trash-alt'></i></a>
+                    {% endif %}
                 </div>
             </div>
             {% endif %}
-        {% endfor %}
+            {% endfor %}
+        </div>
+        <div id="formComentario">
+
+            <!-- {% if user.is_authenticated %} -->
+            <form method="POST" id="formComment" action="{% url 'addComment' %}"> 
+                {% csrf_token %} 
+                <input type="hidden" name="post_id" value="{{ post.id }}">
+                
+                <input type="text" name="newComment" class="form-control" id="inputIntro" placeholder="Escribe un comentario..."  maxlength="200" required>
+                <input type="submit" value="Comentar"/>
+            </form>
+        </div>
+            <!-- {% endif %} -->
     </div>
     
     
     </div>
     <div id="scrollButton">&#8593;</div>
    
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var comentariosSpan = document.getElementById('commentsPost');
+            var comentariosDiv = document.getElementById('Comentarios');
+        
+            comentariosSpan.addEventListener('click', function() {
+                comentariosDiv.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>        
 
     {% block script_file %}
         {{ block.super }}

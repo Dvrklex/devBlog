@@ -67,6 +67,56 @@ body{
     position: relative;
     overflow: hidden;
 }
+#likesPost {
+    position: absolute;
+    top: 45px; 
+    right: 5px;  
+    border-radius: 15px;
+    color: white;
+    font-size: 14px;
+    border: solid rgb(4, 150, 235) 1px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 0;
+    z-index: 1; 
+}
+#likesPost:hover{
+    background: rgb(4, 150, 235);
+    cursor: pointer;
+    transition : 500ms;
+    padding: 5px 20px;
+    transform : translateY(-0px);
+}
+#likesPost a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
+#commentsPost {
+    position: absolute;
+    top: 85px; 
+    right: 5px;  
+    border-radius: 15px;
+    color: white;
+    font-size: 14px;
+    border: solid rgb(141, 0, 0) 1px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 0;
+    z-index: 1; 
+}
+#commentsPost:hover{
+    background: rgb(141, 0, 0);
+    cursor: pointer;
+    transition : 500ms;
+    padding: 5px 20px;
+    transform : translateY(-0px);
+}
+#commentsPost a{
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+}
 #headerPost img {
     width: 100%;
     height: 100%;
@@ -122,6 +172,9 @@ body{
  
 
 /** Estilos para markdown content*/
+.markdown-content{
+    color: #fff;
+}
 .markdown-content h1{
     color: #fff;
 }
@@ -131,12 +184,141 @@ body{
 .markdown-content h3{
     color: #fff;
 }
-
-#Comentarios{
-    margin: 20px;
-    width: 900px;
-    height: 300px;
-    color: rgb(0, 0, 0);
-    background-color: rgb(255, 255, 255);
+.markdown-content li{
+    color: #fff;
+}
+.markdown-content pre{
+    color: #fff;
+}
+.markdown-content a{
+    color: #fff;
+}
+.markdown-content p{
+    color: #fff;
+}
+.markdown-content table{
+    color: #fff;
 }
 
+/* Comentarios */
+#indexComentarios{
+    margin: 20px;
+    width: 900px;
+    min-height: 350px;
+    color: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.301);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.459);
+    backdrop-filter: blur(17.9px);
+    -webkit-backdrop-filter: blur(17.9px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+#indexComentarios h2{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color:orange
+}
+
+#comentarioContainer{
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+.comentario{
+    padding: 5px;
+    width: 500px;
+    min-height: 120px;
+    margin: 15px auto;
+    background: rgba(255, 255, 255, 0.692);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.9px);
+    -webkit-backdrop-filter: blur(17.9px);
+    border: 1px solid rgba(185, 77, 0, 0.3);
+}
+.comentario h3{
+    margin: 0;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    text-align: center;
+}
+.comentario p{
+    margin: 10px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+}
+.comentario span{
+    position: absolute;
+    color: gray;
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    right: 0;
+    bottom: 5px;
+    left: 0;
+}
+#formComentario{
+    width: 100%;
+   height: 50px;
+    
+}
+#formComment{
+    width: 100%;
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    margin: auto;
+    justify-content: center;
+}
+
+#formComment  input[type=text]{
+    width: 80%;
+    height: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(185, 77, 0, 0.3);
+    padding: 10px;
+    margin: 5px;
+}
+#formComment input[type=submit]{
+    width: 100px;
+    height: 30px;
+    border-radius: 16px;
+    padding: 5px;
+    margin: 5px;
+    background: rgb(255, 196, 0);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.9px);
+    -webkit-backdrop-filter: blur(17.9px);
+    border: 1px solid rgba(185, 77, 0, 0.3);
+    cursor: pointer;
+}
+#deleteComment {
+    position: absolute;
+    top: 5px; 
+    right: 5px;  
+    border-radius: 15px;
+    color: rgb(141, 0, 0);
+    font-size: 14px;
+    border: solid rgb(141, 0, 0) 1px;
+    background-color: transparent;
+    padding: 5px;
+    margin: 0;
+    z-index: 1; 
+}
+#deleteComment:hover{
+    color: white;
+    background: rgb(141, 0, 0);
+    cursor: pointer;
+    transition : 500ms;
+    padding: 5px 20px;
+    transform : translateY(-0px);
+}

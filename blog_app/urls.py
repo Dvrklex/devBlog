@@ -16,7 +16,11 @@ urlpatterns = [
     path('markdownx/', include(markdownx_urls)),
     path('delete-post/<int:post_id>',views.delete_post,name='deletePost'),
     path('edit-post/<int:post_id>',views.edit_post,name='editPost'),
-        path('post/<int:post_id>/like/', views.like_post, name='like_post'),
+    path('post/<int:post_id>/like/', views.like_post, name='like_post'),
+    path('add-comment/',views.add_comment,name='addComment'),
+    path('delete-comment/<int:comentario_id>',views.delete_comment,name='deleteComment'),
+    path('search/', views.search, name='Search'),
+
 
 
 

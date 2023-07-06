@@ -2,8 +2,9 @@ from django.core.paginator import Paginator
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.http import HttpResponseRedirect
 
-from .models import Post,Categoria,Like
+from .models import Post,Categoria,Like,Comentario
 # Create your views here.
 def home(request):
     view_name= 'Home' 
@@ -16,7 +17,6 @@ def home(request):
         "sliderJs":"blog_app/js/slider.js",
         }
     latest_posts = Post.objects.all().order_by('-created')[:5]
-    print(latest_posts)
     return render(request, 'blog_app/home.html',{'view_name': view_name,"context":context,"latest_posts":latest_posts})
 
 def ayuda(request):
@@ -48,7 +48,7 @@ def categoria(request,categoria_id):
     }
     
     categoria = Categoria.objects.get(id=categoria_id)
-    posts = Post.objects.filter(categoria=categoria)
+    posts = Post.objects.filter(categoria=categoria).order_by('-created')
     return render(request,'blog_app/filtro_categoria.html',{'view_name':view_name,'context':context,'categoria':categoria,'posts':posts})
 
 
@@ -180,6 +180,7 @@ def edit_post(request, post_id):
         'categorias': categorias
     })
 
+@login_required
 def like_post(request, post_id):
     post = Post.objects.get(id=post_id)
     user = request.user
@@ -191,4 +192,41 @@ def like_post(request, post_id):
     else:
         Like.objects.create(post=post, usuario=user)
 
-    return redirect('Blog') 
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required
+def add_comment(request):
+    if request.method == 'POST':
+        post_id = request.POST.get('post_id')
+        post = Post.objects.get(id=post_id)
+        comentario = request.POST.get('newComment')
+        usuario = request.user
+        Comentario.objects.create(post=post, usuario=usuario, contenido=comentario)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+@login_required
+def delete_comment(request, comentario_id):
+    comentario = Comentario.objects.get(id=comentario_id)
+    comentario.delete()
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+# Barra de busqueda 
+def search(request):
+    view_name = 'Search'
+    context = {
+        "css_file":"blog_app/css/blog.css",
+        "search_css":"blog_app/css/search.css",
+        
+        
+        }
+    query = request.GET.get('search')
+    results = Post.objects.filter(titulo__icontains=query) |  Post.objects.filter(introduccion__icontains=query) | Post.objects.filter(contenido__icontains=query)
+    return render(request, 'blog_app/search.html', {
+        'view_name':view_name,
+        'context':context, 
+        'results': results, 
+        })

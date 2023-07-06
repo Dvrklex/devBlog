@@ -1,4 +1,4 @@
-form {
+#singupForm {
     display: grid;
     width: 600px;
     height: auto;
@@ -15,7 +15,7 @@ form {
     border: 1px solid rgba(99, 99, 99, 0.3);
 }
 
-form h2{
+#singupForm h2{
     font-size: 38px;
     font-weight: 600;
     text-align: center;
@@ -24,12 +24,12 @@ form h2{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-form .input-box{
+#singupForm .input-box{
     display: grid;
     margin: 10px;
 }
 
-form .input-box input{
+#singupForm .input-box input{
     height: 50px;
     width: 100%;
     border: none;
@@ -40,7 +40,7 @@ form .input-box input{
     padding: 0 15px;
     resize: none;}
 
-form button{
+#singupForm button{
     margin: 5px;
     color: #000000;
     font-size: 18px;
@@ -54,23 +54,23 @@ form button{
     cursor: pointer;
     transition: all 0.3s ease;
 }    
-form button:hover{
+#singupForm button:hover{
     background: orange;
     color: rgb(0, 0, 0);
 }    
-form .log-cont {
+#singupForm .log-cont {
     text-align: center;
 }
-form .log-cont p a{
+#singupForm .log-cont p a{
     color: greenyellow;
     text-decoration: none
 }
-form .log-cont p a:hover{
+#singupForm .log-cont p a:hover{
     transition: 1s;
     text-decoration: underline greenyellow;
 }
 
-form .alert{
+#singupForm .alert{
     margin:20px auto;
     width: 100%;
 }

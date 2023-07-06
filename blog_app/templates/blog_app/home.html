@@ -43,7 +43,7 @@
         </div>
         <div id="contextCategorias">
             {% for categoria in categorias %}
-            <a href="#">{{ categoria.nombre }}</a>
+            <a id="categoria" href="{% url 'Categoria' categoria.id %}">{{ categoria.nombre }}</a>
             {% endfor %}
         </div>
          </div>

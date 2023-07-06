@@ -156,8 +156,8 @@
 
 }
 #categoria{
-    width: 35px;
-    height: 25px;
+    /* width: 35px; */
+    /* height: 25px; */
     color: orange;
     background-color: transparent;
     border: solid orange 1px;
@@ -167,6 +167,13 @@
     margin-right: 5px;
 }
 
+#categoria:hover{
+    cursor: pointer;
+    background-color: rgb(209, 118, 0);
+    border: solid rgb(209, 118, 0) 1px;
+    color: white;
+    transition: 0.5s;
+}
 
 
 

@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block content %}
-    <form method="POST" action="">
+    <form method="POST" id="loginForm" action="{% url 'Login' %}">
         {% csrf_token %}
         <h2>Inicia Sesión</h2>
         <div class="input-box">

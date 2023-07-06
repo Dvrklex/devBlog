@@ -14,7 +14,7 @@
         width: 100%;
     }
 </style>
-    <form  method="POST" action="">
+    <form  method="POST" id="singupForm" action="{% url 'SignUp' %}">
         {% csrf_token %}
         <h2>Registrate</h2>
         

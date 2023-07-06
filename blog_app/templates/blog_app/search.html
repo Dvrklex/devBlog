@@ -4,50 +4,48 @@
 
 {% block css_file %}
     {{ block.super }} 
-    <link href="{% static context.blog_css %}" rel="stylesheet">
-    <link href="{% static context.pagination_css %}" rel="stylesheet">
-    <!-- <link href="{% static context.swiperBundleCss %}" rel="stylesheet"> -->
-
+    <link href="{% static context.css_file %}" rel="stylesheet">
+    <link href="{% static context.search_css %}" rel="stylesheet">
 {% endblock %}
 
+
 {% block content %}
-<div id="indexBlog">
-    <div id="postsContainer">
-        {% for post in page_object %}
+{% if results %}
+    <div id="indexSearch">
+        <div class="glitch-wrapper">
+            <div class="glitch" data-text="Resultado de busqueda">Resultado de busqueda</div>
+        </div>
+        
+        <div id="postsContainer">
+            {% for post in results %}
             <div id="containerPost">
                 <div id="headerPost">
                     <span id="autorPost">{{ post.autor }}</span>
                     <span id="likesPost"><a href="{% url 'like_post' post.id %}">{{ post.like_set.count }}<i class='bx bxs-like'></i></a></span>
                     <span id="commentsPost"><a href="#">{{ post.comentario_set.count }}</a><i class='bx bxs-comment'></i></span>
-            
                     <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img">
                 </div>
                 <div id="bodyPost">
                     <a href="{% url 'Post' post.id %}" ><h2 id="titlePost">{{ post.titulo|truncatechars:30 }}</h2></a>
-                    <p id="contentPost">{{ post.introduccion }}</p>
+                    <p id="contentPost">{{ post.contenido|truncatechars:100 }}</p>
                 </div>
                 <div id="footerPost">
                     <div id="categoriaContainer" >
                         {% for categorias in post.categoria.all|slice:":3" %}
                         <a href="{% url 'Categoria' categorias.id %}" ><span id="categoria">{{ categorias.nombre }}</span></a>
                         {% endfor %}
+                            </div>
+                        </div>
                     </div>
+            
+                    {% endfor %}
                 </div>
-            </div>
-            {% endfor %}
-        </div>
-        
-        <div class="pagination">
-        {% if page_object.has_previous %}
-        <a href="?pagina={{ page_object.previous_page_number }}">anterior</a>
-        {% endif %}
-        
-        <span class="current-page">{{ page_object.number }}</span>
-        
-        {% if page_object.has_next %}
-            <a href="?pagina={{ page_object.next_page_number }}">siguiente</a>
-        {% endif %}
+                
     </div>
-</div>
-
+{% else %}
+    <div id="indexSearch">
+        {% include 'blog_app/widgets/no_result.html' %}
+    </div>
+{% endif %}  
+ 
 {% endblock %}

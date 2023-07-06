@@ -7,9 +7,12 @@
     </div>
     <ul class="nav-list">
         <li>
+            <form method="get" id="nomolestar"action="{% url 'Search' %}">
+
             <i class='bx bx-search' ></i>
-            <input type="text" placeholder="Search...">
+            <input type="search" name="search" id="search" placeholder="Buscar...">
             <span class="tooltip">Search</span>
+            </form>
         </li>
         <li>
             <a href="{% url 'Home' %}">
