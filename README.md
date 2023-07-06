@@ -29,9 +29,9 @@ Para instalar y configurar el proyecto en localhost:
 1. Clona el repositorio.
 2. Ejecuta `python3 manage.py runserver`.
 3. Instala los requerimientos `pip install -r requirements.txt`.
-   a. Django
-   b. Markdown
-   c. Markdownx
+   - Django
+   - Markdown
+   - Markdownx
 5. La base de datos es SQLite3 y se ejecutan las migraciones con `python3 manage.py migrate`.
 
 
