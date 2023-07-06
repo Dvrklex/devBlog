@@ -25,6 +25,7 @@ La estructura del proyecto sigue la convención generada por Django. Está compu
 
 Para instalar y configurar el proyecto en localhost:
 
+*Requisitos: tener instalado Django y Python. La única librería adicional a instalar es ckeditor widget.*
 1. Clona el repositorio.
 2. Ejecuta `python3 manage.py runserver`.
 3. Instala los requerimientos `pip install -r requirements.txt`.
@@ -33,7 +34,6 @@ Para instalar y configurar el proyecto en localhost:
    c. Markdownx
 5. La base de datos es SQLite3 y se ejecutan las migraciones con `python3 manage.py migrate`.
 
-Requisitos: tener instalado Django y Python. La única librería adicional a instalar es ckeditor widget.
 
 Inicia el proyecto con el comando `python3 manage.py runserver` y abre el navegador en http://localhost:8000
 
