@@ -13,6 +13,13 @@ Este proyecto es un blog desarrollado con Django. El propósito principal es pon
 	- Contraseña: admin
 ```
 
+## <h2 align="center"> Estructura del proyecto</h2>
+
+La estructura del proyecto sigue la convención generada por Django. Está compuesto por el proyecto principal y dos aplicaciones: `blog` y `user`.
+
+- `blog`: Contiene los modelos, vistas, URLs y plantillas relacionadas con el blog y los posts.
+- `user`: Maneja la autenticación de usuarios, registro, inicio de sesión y gestión de usuarios.
+  
 ## <h2 align="center"> Instalación y configuración</h2>
 
 
@@ -28,13 +35,8 @@ Para instalar y configurar el proyecto en localhost:
 
 Requisitos: tener instalado Django y Python. La única librería adicional a instalar es ckeditor widget.
 
+Inicia el proyecto con el comando `python3 manage.py runserver` y abre el navegador en http://localhost:8000
 
-## <h2 align="center"> Estructura del proyecto</h2>
-
-La estructura del proyecto sigue la convención generada por Django. Está compuesto por el proyecto principal y dos aplicaciones: `blog` y `user`.
-
-- `blog`: Contiene los modelos, vistas, URLs y plantillas relacionadas con el blog y los posts.
-- `user`: Maneja la autenticación de usuarios, registro, inicio de sesión y gestión de usuarios.
 
 ## <h2 align="center">Tecnologías utilizadas</h2>
 <div align="center">
