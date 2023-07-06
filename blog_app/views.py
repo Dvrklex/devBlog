@@ -3,7 +3,7 @@ from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
-from .models import Post,Categoria
+from .models import Post,Categoria,Like
 # Create your views here.
 def home(request):
     view_name= 'Home' 
@@ -179,3 +179,16 @@ def edit_post(request, post_id):
         'post': post,
         'categorias': categorias
     })
+
+def like_post(request, post_id):
+    post = Post.objects.get(id=post_id)
+    user = request.user
+
+    like_exists = Like.objects.filter(post=post, usuario=user).exists()
+
+    if like_exists:
+        Like.objects.filter(post=post, usuario=user).delete()
+    else:
+        Like.objects.create(post=post, usuario=user)
+
+    return redirect('Blog') 

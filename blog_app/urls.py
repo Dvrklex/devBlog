@@ -16,6 +16,8 @@ urlpatterns = [
     path('markdownx/', include(markdownx_urls)),
     path('delete-post/<int:post_id>',views.delete_post,name='deletePost'),
     path('edit-post/<int:post_id>',views.edit_post,name='editPost'),
+        path('post/<int:post_id>/like/', views.like_post, name='like_post'),
+
 
 
     

@@ -17,8 +17,9 @@
             <div id="containerPost">
                 <div id="headerPost">
                     <span id="autorPost">{{ post.autor }}</span>
-                    <span id="likesPost">10<i class='bx bxs-like'></i></span>
-                    <span id="commentsPost">4<i class='bx bx-comment' ></i></span>
+                    <span id="likesPost"><a href="{% url 'like_post' post.id %}">{{ post.like_set.count }}<i class='bx bxs-like'></i></a></span>
+            <span id="commentsPost"><a href="#">{{ post.comentario_set.count }}</a><i class='bx bx-comment'></i></span>
+            
                     <img src="{{ post.imagen.url }}" alt="{{ post.titulo }}" class="card_img">
                 </div>
                 <div id="bodyPost">

@@ -32,7 +32,24 @@
         </div>
         
     </div>
-    <div id="Comentarios">aca van los comentarios</div>
+    <div id="Comentarios"> 
+        <h2>comentarios disponibles</h2>
+        {% for comentario in comentarios %}
+            {% if post.id == comentario.post.id %}
+            <div class="card bg-primary text-left m-3">
+                <img class="card-img-top" src="holder.js/100px180/" alt="">
+                <div class="card-body"> 
+                    <h3>{{ comentario.usuario }}</h3>
+                    <p>Cantidad de comentarios: {{ comentario.post.comentario_set.count }}</p> 
+                    <p>{{ comentario.contenido }}</p>
+                    <label>{{ comentario.created }}</label>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
+    
     </div>
     <div id="scrollButton">&#8593;</div>
    

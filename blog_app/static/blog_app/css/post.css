@@ -120,14 +120,6 @@ body{
     text-align: center;
 }
  
-#Comentarios{
-    margin: 20px;
-    width: 900px;
-    height: 300px;
-    color: white;
-    background-color: black;
-}
-
 
 /** Estilos para markdown content*/
 .markdown-content h1{
@@ -139,3 +131,12 @@ body{
 .markdown-content h3{
     color: #fff;
 }
+
+#Comentarios{
+    margin: 20px;
+    width: 900px;
+    height: 300px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+}
+
