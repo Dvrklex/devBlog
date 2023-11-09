@@ -36,6 +36,265 @@ Para instalar y configurar el proyecto en localhost:
 
 
 Inicia el proyecto con el comando `python3 manage.py runserver` y abre el navegador en http://localhost:8000
+## <h2 align="center"> Endpoints de la API</h2>
+
+A continuación se describen los principales endpoints de la API con ejemplos de solicitud y respuesta.
+
+### Autenticación
+
+#### Obtener token de autenticación
+- **Método**: POST
+- **Endpoint**: `/api/token/`
+- **Cuerpo de la solicitud**:
+    ```json
+    {
+        "username": "Admin",
+        "password": "admin"
+    }
+    ```
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "token": "tu_token_de_autenticacion"
+    }
+    ```
+
+### Categorías
+
+#### Obtener todas las categorías
+- **Método**: GET
+- **Endpoint**: `/api/categorias/`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**:
+    ```json
+    [
+        {
+            "id": 1,
+            "nombre": "Nombre de la categoria"
+        },
+        // Otros objetos de categoría
+    ]
+    ```
+
+#### Obtener una categoría por ID
+- **Método**: GET
+- **Endpoint**: `/api/categorias/1`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 1,
+        "nombre": "Nombre de la categoria"
+    }
+    ```
+
+#### Crear una nueva categoría
+- **Método**: POST
+- **Endpoint**: `/api/categorias/`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Cuerpo de la solicitud**:
+    ```json
+    {
+        "nombre": "Nueva Categoria"
+    }
+    ```
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 2,
+        "nombre": "Nueva Categoria"
+    }
+    ```
+
+#### Actualizar una categoría por ID
+- **Método**: PUT
+- **Endpoint**: `/api/categorias/1`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Cuerpo de la solicitud**:
+    ```json
+    {
+        "nombre": "Nuevo nombre"
+    }
+    ```
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 1,
+        "nombre": "Nuevo nombre"
+    }
+    ```
+
+#### Eliminar una categoría por ID
+- **Método**: DELETE
+- **Endpoint**: `/api/categorias/1`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**: 204 No Content
+
+### Comentarios
+
+#### Obtener todos los comentarios
+- **Método**: GET
+- **Endpoint**: `/api/comentarios/`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**:
+    ```json
+    [
+        {
+            "id": 1,
+            "contenido": "Contenido del nuevo comentario",
+            "post": 1,
+            "usuario": 1
+        },
+        // Otros objetos de comentario
+    ]
+    ```
+
+#### Obtener un comentario por ID
+- **Método**: GET
+- **Endpoint**: `/api/comentarios/1`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 1,
+        "contenido": "Contenido del nuevo comentario",
+        "post": 1,
+        "usuario": 1
+    }
+    ```
+
+#### Crear un nuevo comentario
+- **Método**: POST
+- **Endpoint**: `/api/comentarios/`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Cuerpo de la solicitud**:
+    ```json
+    {
+        "contenido": "Contenido del nuevo comentario",
+        "post": 1,
+        "usuario": 1
+    }
+    ```
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 2,
+        "contenido": "Contenido del nuevo comentario",
+        "post": 1,
+        "usuario": 1
+    }
+    ```
+
+#### Eliminar un comentario por ID
+- **Método**: DELETE
+- **Endpoint**: `/api/comentarios/2`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**: 204 No Content
+
+### Posts
+
+#### Obtener todos los posts
+- **Método**: GET
+- **Endpoint**: `/api/posts/`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**:
+    ```json
+    [
+        {
+            "id": 1,
+            "titulo": "titulo",
+            "introduccion": "introduccion",
+            "contenido": "Post creado desde postman",
+            "autor": 1,
+            "categoria": [1]
+        },
+        // Otros objetos de post
+    ]
+    ```
+
+#### Obtener un post por ID
+- **Método**: GET
+- **Endpoint**: `/api/posts/1`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 1,
+        "titulo": "titulo",
+        "introduccion": "introduccion",
+        "contenido": "Post creado desde postman",
+        "autor": 1,
+        "categoria": [1]
+    }
+    ```
+
+#### Crear un nuevo post
+- **Método**: POST
+- **Endpoint**: `/api/posts/`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Cuerpo de la solicitud**:
+    ```json
+    {
+        "titulo": "titulo",
+        "introduccion": "introduccion",
+        "contenido": "Post creado desde postman",
+        "autor": 1,
+        "categoria": [1]
+    }
+    ```
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 2,
+        "titulo": "titulo",
+        "introduccion": "introduccion",
+        "contenido": "Post creado desde postman",
+        "autor": 1,
+        "categoria": [1]
+    }
+    ```
+
+#### Actualizar un post por ID
+- **Método**: PUT
+- **Endpoint**: `/api/posts/1`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Cuerpo de la solicitud**:
+    ```json
+    {
+        "titulo": "Nuevo titulo",
+        "introduccion": "Nueva introduccion",
+        "contenido": "Nuevo contenido",
+        "categoria": [2]
+    }
+    ```
+- **Ejemplo de respuesta**:
+    ```json
+    {
+        "id": 1,
+        "titulo": "Nuevo titulo",
+        "introduccion": "Nueva introduccion",
+        "contenido": "Nuevo contenido",
+        "autor": 1,
+        "categoria": [2]
+    }
+    ```
+
+#### Eliminar un post por ID
+- **Método**: DELETE
+- **Endpoint**: `/api/posts/2`
+- **Cabecera de la solicitud**: `Authorization: Token <tu_token_de_autenticacion>`
+- **Ejemplo de respuesta**: 204 No Content
+
+## <h2 align="center"> Pruebas con Pytest</h2>
+
+Para ejecutar las pruebas con Pytest, sigue estos pasos:
+
+1. Asegúrate de tener Pytest instalado (`pip install pytest`).
+2. Ejecuta el siguiente comando en el directorio del proyecto:
+    ```bash
+    pytest
+    ```
+3. Observa la salida de la consola para ver los resultados de las pruebas.
 
 
 ## <h2 align="center">Tecnologías utilizadas</h2>
@@ -62,12 +321,12 @@ Inicia el proyecto con el comando `python3 manage.py runserver` y abre el navega
     </td>
     <td align="center" height="108" width="108">
       <img
-        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-plain.svg"
+        src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Pytest_logo.svg"
         width="48"
         height="48"
-        alt="JavaScript"
+        alt="Pytest"
       />
-      <br /><strong>JavaScript</strong>
+      <br /><strong>Pytest</strong>
     </td>
     <td align="center" height="108" width="108">
       <img
@@ -77,6 +336,15 @@ Inicia el proyecto con el comando `python3 manage.py runserver` y abre el navega
         alt="PYTHON"
       />
       <br /><strong>Python</strong>
+    </td>
+    <td align="center" height="108" width="108">
+      <img
+        src="https://icon.icepanel.io/Technology/png-shadow-512/Django-REST.png"
+        width="48"
+        height="48"
+        alt="Django Rest"
+      />
+      <br /><strong>Django Rest</strong>
     </td>
     <td align="center" height="108" width="108">
       <img

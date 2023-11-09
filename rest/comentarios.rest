@@ -1,0 +1,26 @@
+### Get comentarios 
+GET  http://localhost:8000/api/comentarios/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Get categoria by ID
+GET  http://localhost:8000/api/comentarios/1 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Create comentarios 
+POST  http://localhost:8000/api/comentarios/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+{
+    "contenido": "Contenido del nuevo comentario",
+    "post": 1,
+    "usuario": 1
+}
+
+### DELETE POST BY ID -> http://localhost:8000/api/comentarios/31
+DELETE http://localhost:8000/api/comentarios/10 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+

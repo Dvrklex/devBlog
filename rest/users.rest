@@ -1,0 +1,25 @@
+### Get users 
+GET  http://localhost:8000/api/users/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Get categoria by ID
+GET  http://localhost:8000/api/users/1 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Create users 
+POST  http://localhost:8000/api/users/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+{
+    "username": "NuevoUsuario",
+    "password": "TuContraseña"
+}
+
+### DELETE POST BY ID -> http://localhost:8000/api/users/31
+DELETE http://localhost:8000/api/users/10 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+

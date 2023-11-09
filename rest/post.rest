@@ -1,0 +1,40 @@
+### Get Posts 
+GET  http://localhost:8000/api/posts/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Get Posts by ID
+GET  http://localhost:8000/api/posts/2 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Create Posts 
+POST  http://localhost:8000/api/posts/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+{
+    "titulo": "titulo",
+    "introduccion": "introduccion",
+    "contenido": "Post creado desde postman",
+    "autor": 1,
+    "categoria": [1]
+}
+
+### DELETE POST BY ID -> http://localhost:8000/api/posts/31
+DELETE http://localhost:8000/api/posts/10 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### PUT POST (UPDATE) by ID -> http://localhost:8000/api/posts/31
+PUT http://localhost:8000/api/posts/1 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+
+{
+    "titulo": "titulo",
+    "introduccion": "introduccion",
+    "contenido": "Post creado desde postman",
+    "categoria": [1]
+}

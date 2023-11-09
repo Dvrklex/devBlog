@@ -1,0 +1,35 @@
+### Get categorias 
+GET  http://localhost:8000/api/categorias/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### Get categoria by ID
+GET  http://localhost:8000/api/categorias/1 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+
+
+### Create categorias 
+POST  http://localhost:8000/api/categorias/ HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+{
+    "nombre": "Nombre de la categoria"
+}
+
+### DELETE POST BY ID -> http://localhost:8000/api/categorias/31
+DELETE http://localhost:8000/api/categorias/10 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+### PUT POST (UPDATE) by ID -> http://localhost:8000/api/categorias/31
+PUT http://localhost:8000/api/categorias/1 HTTP/1.1
+content-type: application/json
+Authorization: Token <token>
+
+
+{
+    "nombre": "Nuevo nombre"
+}

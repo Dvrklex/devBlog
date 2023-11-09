@@ -1,9 +1,11 @@
 from django.urls import path,include
 from markdownx import urls as markdownx_urls
 
-from blog_app import views
+from blog_app import views, view_set
 from django.conf import settings
 from django.conf.urls.static import static
+
+
 
 urlpatterns = [
     path('', views.home, name='Home'),
@@ -22,9 +24,6 @@ urlpatterns = [
     path('search/', views.search, name='Search'),
 
 
-
-
-    
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

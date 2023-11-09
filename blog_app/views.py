@@ -5,6 +5,8 @@ from django.conf import settings
 from django.http import HttpResponseRedirect
 
 from .models import Post,Categoria,Like,Comentario
+
+
 # Create your views here.
 def home(request):
     view_name= 'Home' 
